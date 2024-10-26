@@ -1,9 +1,15 @@
-import { Container, Flex, Text, Link, HStack, Button } from "@chakra-ui/react";
-import { LuPlusSquare } from "react-icons/lu";
+import { Container, Flex, Text, HStack, useColorMode, Button } from "@chakra-ui/react";
+import { LuPlusSquare} from "react-icons/lu";
+import { MdLightMode, MdOutlineDarkMode } from "react-icons/md";
+import { Link } from "react-router-dom";
 
-import React from "react";
+
+
 
 function Navbar() {
+    const {colorMode, toggleColorMode} = useColorMode();
+    
+
   return (
     <>
       <Container maxW={"1140px"} px={4}>
@@ -28,6 +34,12 @@ function Navbar() {
               <Button>
                 <LuPlusSquare fontSize={20} />
               </Button>
+            </Link>
+            <Link>
+                <Button onClick={toggleColorMode}> 
+                   {colorMode === "light" ?  <MdOutlineDarkMode />:<MdLightMode />}
+                   
+                </Button>
             </Link>
           </HStack>
         </Flex>

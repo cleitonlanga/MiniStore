@@ -8,6 +8,13 @@ export default defineConfig({
     alias: {
       '@': path.resolve(path.dirname(new URL(import.meta.url).pathname), './src'),
     },
+    server:{
+      proxy:{
+        "/api":{
+          target:"http://localhost:5000",
+        }
+      }
+    }
   },
 })
 
