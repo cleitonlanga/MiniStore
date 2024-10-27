@@ -25,8 +25,21 @@ const CreatePage = () => {
   const handleAddProduct = async () => {
     const { success, message } = await createProduct(newProduct);
     if (!success === true)
-      return toast({ status: statuses[1], title:"Error" , description: message, isClosable: true, duration: 3000 });
-    else toast({ status: statuses[0],title: "Success",description: message, isClosable: true, duration: 3000 });
+      return toast({
+        status: statuses[1],
+        title: "Error",
+        description: message,
+        isClosable: true,
+        duration: 3000,
+      });
+    else
+      toast({
+        status: statuses[0],
+        title: "Success",
+        description: message,
+        isClosable: true,
+        duration: 3000,
+      });
 
     setnewProduct({ name: "", price: "", image: "" });
   };
